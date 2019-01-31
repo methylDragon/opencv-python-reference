@@ -1096,7 +1096,24 @@ gradient = cv.morphologyEx(img, cv.MORPH_GRADIENT, kernel)
 
 Difference between input and opening.
 
+> The white top-hat transform returns an image, containing those "objects" or "elements" of an input image that:
+>
+> - Are "smaller" than the structuring element (i.e., places where the structuring element does not fit in), and
+> - are **brighter** than their surroundings.
+>
+> **Before**
+>
+> ![img](assets/Cosmos_original.jpg)
+>
+> **After**
+>
+> ![img](assets/Cosmos_tophat.jpg)
+>
+> https://en.wikipedia.org/wiki/Top-hat_transform
+
 ![tophat.png](assets/tophat.png)
+
+You can use it for isolating bright objects under non-uniform illumination too!
 
 ```python
 tophat = cv.morphologyEx(img, cv.MORPH_TOPHAT, kernel)
@@ -1105,6 +1122,12 @@ tophat = cv.morphologyEx(img, cv.MORPH_TOPHAT, kernel)
 #### **Black Hat**
 
 Difference between input and closing.
+
+> The black top-hat returns an image, containing the "objects" or "elements" that:
+>
+> - Are "smaller" than the structuring element, and
+> - are **darker** than their surroundings.
+> - https://en.wikipedia.org/wiki/Top-hat_transform
 
 ![blackhat.png](assets/blackhat.png)
 
